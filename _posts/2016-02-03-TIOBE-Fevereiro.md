@@ -4,7 +4,7 @@ title: Ranking TIOBE Setembro 2018
 date: 2018-09-07 14:10:00
 description: Ranking das linguagens mais populares - Setembro 2018
 img: 
-fig-caption: 
+fig-caption: ranking2018.png
 tags: [Desenvolvimento]
 ---
 

@@ -1,0 +1,35 @@
+title: Diego Araújo
+description: > # this means to ignore newlines until "baseurl:"
+  Meu site pessoal sobre tecnologia e desenvolvimento de software
+permalink: ':title/'
+baseurl:  # the subpath of your site, e.g. /blog
+url: "http://diegosaraujo.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+site-twitter: #if your site has a twitter account, enter it here
+
+# Author Settings
+author: Diego Araújo # add your name
+author-img: avatar-icon.png # add your photo
+about-author: Analista de Sistemas • Carioca da Gema • Vascaíno • Sempre em busca de novos conhecimentos # add description
+social-twitter: diego_araujo10
+social-facebook: diegoaraujo10
+social-github: diegosaraujo
+social-linkedin: diesaraujo
+social-email: diesaraujo@gmail.com
+
+# Disqus
+discus-identifier: diesaraujo
+
+# Tracker
+analytics: UA-57117931-1
+
+# Build Settings
+markdown: kramdown
+plugins:
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jemoji
+
+paginate: 8
+paginate_path: "/page/:num"
+
+exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]

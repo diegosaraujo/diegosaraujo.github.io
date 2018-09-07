@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>CSOM SharePoint - Diego Araújo</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Diego Araújo" property="og:site_name">
+  
+    <meta content="CSOM SharePoint" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="Operações básicas no SharePoint usando JavaScript" property="og:description">
+  
+  
+    <meta content="http://localhost:4000/CSOM-SharePoint/" property="og:url">
+  
+  
+    <meta content="2016-01-28T13:31:00-02:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/assets/img/avatar-icon.png" property="og:image">
+  
+  
+    
+  
+  
+    
+    <meta content="SharePoint" property="article:tag">
+    
+    <meta content="JavaScript" property="article:tag">
+    
+  
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@diego_araujo10">
+  
+    <meta name="twitter:title" content="CSOM SharePoint">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/CSOM-SharePoint/">
+  
+  
+    <meta name="twitter:description" content="Operações básicas no SharePoint usando JavaScript">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img/avatar-icon.png">
+  
+
+	<meta name="description" content="Operações básicas no SharePoint usando JavaScript">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta property="og:image" content="">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/avatar-icon.png" alt="Diego Araújo"></a>
+      </div>
+      <div class="author-name">Diego Araújo</div>
+      <p>Analista de Sistemas • Carioca da Gema • Vascaíno • Sempre em busca de novos conhecimentos</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+        
+          <li><a href="https://twitter.com/diego_araujo10" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        
+        
+          <li><a href="https://facebook.com/diegoaraujo10" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        
+        
+          <li class="github"><a href="http://github.com/diegosaraujo" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/diesaraujo" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:diesaraujo@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2018 &copy; Diego Araújo</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">CSOM SharePoint</h1>
+        <div class="page-date"><span>2016, Jan 28&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <h3 id="por-que-o-csom">Por que o CSOM?</h3>
+
+<p>CSOM – Client Side Object Model. O CSOM é utilizado para executar operações simples no SharePoint, poupando assim muitas vezes o trabalho que temos para criar uma webpart customizada.
+Algumas operações básicas são bem simples de fazer, basta ter conhecimento de JavaScript e deixar que a biblioteca de JS do SharePoint faça o resto.
+O link que eu utilizei como referência para este artigo foi retirado do site da <a href="https://msdn.microsoft.com/pt-br/library/office/jj163201.aspx">MSDN</a>.
+Antes de começar eu gostaria de citar uma API JavaScript que utilizamos em um outro projeto aqui na empresa, <a href="http://aymkdn.github.io/SharepointPlus/">SharePoint Plus</a>. Funciona igualmente bem, e cabe a você escolher o que utilizar, mas vale dar uma olhada no projeto do SharePoint Plus. O projeto está no github.</p>
+
+<h3 id="cenário">Cenário</h3>
+
+<p>Eu irei utilizar o CSOM para ler uma lista e exibir os 10 primeiros itens dela, certo? Coisa simples, só para entender o funcionamento.
+Você pode até achar, que é bobeira ou para o que eu utilizaria isto, mas já te adianta que com essa brincadeira dá para fazer bastante coisa.</p>
+
+<h3 id="como-implementar">Como implementar?</h3>
+<p>Em primeiro lugar precisaremos de uma lista personalizada para recuperar os dados.
+Eu criei uma lista chamada Contatos e criei as seguintes colunas:  Empresa (do tipo texto simples), Status (do tipo escolha “choice” e adicionei duas opções: Ativo e Inativo) e Título (vou deixar padrão).</p>
+
+<center><img src="/assets/img/CSOM/img01.jpg" alt="Lista de Contatos" /></center>
+
+<p>Adicione alguns contatos na lista para vermos os resultados do teste.
+O próximo passo é criar o código.</p>
+
+<p>Crie um arquivo JS no seu editor preferido. E adicione o seguinte código.</p>
+
+<p><strong>Obs</strong>: O código Html e o código JS deverão estar no mesmo arquivo, pois o botão chamará a função javascript.</p>
+
+<p><strong>Código HTML</strong></p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">"exibeItensLista('Digite aqui a URL do seu Site SharePoint'); return false;"</span><span class="nt">&gt;</span>Exibe 10 itens da Lista<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;h2&gt;</span>Exibe os 10 primeiros itens da lista Contatos<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"exibeItens"</span><span class="nt">&gt;&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p><br />
+<strong>Código JavaScript</strong></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"text/javascript"</span><span class="o">&gt;</span>
+	<span class="kd">function</span> <span class="nx">exibeItensLista</span><span class="p">(</span><span class="nx">siteUrl</span><span class="p">){</span>
+	<span class="kd">var</span> <span class="nx">clientContext</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SP</span><span class="p">.</span><span class="nx">ClientContext</span><span class="p">(</span><span class="nx">siteUrl</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">oList</span> <span class="o">=</span> <span class="nx">clientContext</span><span class="p">.</span><span class="nx">get_web</span><span class="p">().</span><span class="nx">get_lists</span><span class="p">().</span><span class="nx">getByTitle</span><span class="p">(</span><span class="s1">'Contatos'</span><span class="p">);</span>
+	 <span class="kd">var</span> <span class="nx">camlQuery</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SP</span><span class="p">.</span><span class="nx">CamlQuery</span><span class="p">();</span>
+     	<span class="nx">camlQuery</span><span class="p">.</span><span class="nx">set_viewXml</span><span class="p">(</span>
+            <span class="s1">'&lt;View&gt;&lt;Query&gt;&lt;Where&gt;&lt;Geq&gt;&lt;FieldRef Name=</span><span class="se">\'</span><span class="s1">ID</span><span class="se">\'</span><span class="s1">/&gt;'</span> <span class="o">+</span> <span class="s1">'&lt;Value Type=</span><span class="se">\'</span><span class="s1">Number</span><span class="se">\'</span><span class="s1">&gt;1&lt;/Value&gt;&lt;/Geq&gt;&lt;/Where&gt;&lt;/Query&gt;'</span>
+            <span class="o">+</span> <span class="s1">'&lt;RowLimit&gt;10&lt;/RowLimit&gt;&lt;/View&gt;'</span>
+     		<span class="p">);</span>
+        		<span class="k">this</span><span class="p">.</span><span class="nx">collListItem</span> <span class="o">=</span> <span class="nx">oList</span><span class="p">.</span><span class="nx">getItems</span><span class="p">(</span><span class="nx">camlQuery</span><span class="p">);</span>
+		<span class="nx">clientContext</span><span class="p">.</span><span class="nx">load</span><span class="p">(</span><span class="nx">collListItem</span><span class="p">);</span>
+		<span class="nx">clientContext</span><span class="p">.</span><span class="nx">executeQueryAsync</span><span class="p">(</span>
+		<span class="nb">Function</span><span class="p">.</span><span class="nx">createDelegate</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">onQuerySucceeded</span><span class="p">),</span>
+		<span class="nb">Function</span><span class="p">.</span><span class="nx">createDelegate</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">onQueryFailed</span><span class="p">)</span>
+		<span class="p">);</span>
+	<span class="p">}</span>
+
+	<span class="kd">function</span> <span class="nx">onQuerySucceeded</span><span class="p">(</span><span class="nx">sender</span><span class="p">,</span> <span class="nx">args</span><span class="p">){</span>
+		<span class="kd">var</span> <span class="nx">listInfo</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">listEnumerator</span> <span class="o">=</span> <span class="nx">collListItem</span><span class="p">.</span><span class="nx">getEnumerator</span><span class="p">();</span>
+		<span class="k">while</span> <span class="p">(</span><span class="nx">listEnumerator</span><span class="p">.</span><span class="nx">moveNext</span><span class="p">())</span> <span class="p">{</span>
+			<span class="kd">var</span> <span class="nx">itemAtual</span> <span class="o">=</span> <span class="nx">listEnumerator</span><span class="p">.</span><span class="nx">get_current</span><span class="p">();</span>
+			<span class="nx">listInfo</span> <span class="o">+=</span> <span class="s1">'&lt;br /&gt;ID: '</span> <span class="o">+</span> <span class="nx">itemAtual</span><span class="p">.</span><span class="nx">get_id</span><span class="p">()</span> <span class="o">+</span> <span class="s1">'&lt;br /&gt; Nome: '</span> <span class="o">+</span> <span class="nx">itemAtual</span><span class="p">.</span><span class="nx">get_item</span><span class="p">(</span><span class="s1">'Title'</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'&lt;br /&gt; Empresa: '</span> <span class="o">+</span>
+			<span class="nx">itemAtual</span><span class="p">.</span><span class="nx">get_item</span><span class="p">(</span><span class="s1">'Empresa'</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'&lt;br /&gt; Status do Cliente: '</span> <span class="o">+</span> <span class="nx">itemAtual</span><span class="p">.</span><span class="nx">get_item</span><span class="p">(</span><span class="s1">'Status'</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'&lt;br /&gt;'</span> <span class="p">;</span>
+		<span class="p">}</span>
+
+		<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'exibeItens'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">listInfo</span><span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="kd">function</span> <span class="nx">onQueryFailed</span><span class="p">(</span><span class="nx">sender</span><span class="p">,</span> <span class="nx">args</span><span class="p">){</span>
+	<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'exibeItens'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'&lt;br /&gt;Falha de Requisição'</span> <span class="o">+</span> <span class="nx">args</span><span class="p">.</span><span class="nx">get_message</span><span class="p">()</span> <span class="o">+</span> <span class="s1">'&lt;br /&gt;'</span> <span class="o">+</span> <span class="nx">args</span><span class="p">.</span><span class="nx">get_stackTrace</span><span class="p">();</span>
+	<span class="p">}</span>
+<span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>Dê uma olhada com calma no código, mas não é complicado de entender. Os detalhes que são válidos mencionar são:</p>
+
+<p><strong>Html?</strong> - Sim eu adicionei tags no início do código para que executássemos o teste.
+Então repare que o HTML nada mais é que uma div com um botão que executa a minha função em JS (exibeItensLista) ao receber um clique. Após o clique há uma div chamada <code class="highlighter-rouge">ExibeItens</code> que recebe os itens da lista.
+Bem simples.</p>
+
+<p><strong>Coluna Title?</strong> – Se você reparar a function onQuerySucceeded possui um while que faz o percurso na lista e retorna os itens. Para que os itens sejam guardados na variável <code class="highlighter-rouge">listInfo</code> eu preciso informar os nomes das colunas (ex: itemAtual.get_item(‘Title’)). Aí você deve estar se perguntando, mas porquê campo <code class="highlighter-rouge">Title</code>? O meu SharePoint Server é inglês e eu utilizo um language pack para português. Basta ficar atento a isto, mas na dúvida crie uma outra coluna se achar necessário.</p>
+
+<p>Detalhe “chato”, mas é o tipo de coisa que te faz bater cabeça.</p>
+
+<p><strong>Query CAML</strong> - Eu estou utilizando query CAML somente para realizar filtro e dar uma ideia do que pode ser feito, neste exemplo é filtrado somente os 10 primeiros itens, mas eu poderia filtra pelo Status do cliente.
+Referência Query CAML <a href="https://msdn.microsoft.com/pt-br/library/office/ms462365.aspx">https://msdn.microsoft.com/pt-br/library/office/ms462365.aspx</a>
+Agora com o arquivo JS criado basta importar ele para o SharePoint.</p>
+
+<center><img src="/assets/img/CSOM/img02.jpg" alt="Biblioteca que guarda o arquivo JS" /></center>
+
+<p>Eu adicionei o arquivo JS na pasta /SiteAssets/JS, mas você pode adicionar em qualquer outra pasta do SharePoint.
+Para finalizar basta adicionar uma webpart do tipo <code class="highlighter-rouge">Editor de Conteúdo</code> na página que deseja exibir o CSOM.</p>
+
+<center><img src="/assets/img/CSOM/img03.jpg" alt="Adicionando a WebPart Editor de Conteúdo" /></center>
+
+<p>Depois clique em <strong>Adicionar</strong>.</p>
+
+<p>Após adicionar o Editor de Conteúdo clique na seta no canto superior direito da webpart e clique na opção <strong>Editar Web Part</strong>.</p>
+
+<center><img src="/assets/img/CSOM/img04.jpg" alt="Editando a WePart" /></center>
+
+<p>No campo <strong>Link de Conteúdo</strong> adicione a url aonde está localizado o arquivo JS e depois clique em <strong>OK</strong>.</p>
+
+<center><img src="/assets/img/CSOM/img05.jpg" alt="Inserindo a URL no campo link de conteúdo" /></center>
+
+<p>Após finalizado o resultado deverá ser como o da imagem abaixo.</p>
+
+<center><img src="/assets/img/CSOM/img06.jpg" alt="WebPart adicionada à página" /></center>
+
+<p>Agora é só testar e ver os 10 primeiros itens da lista sendo apresentados.</p>
+
+<center><img src="/assets/img/CSOM/img07.jpg" alt="Testando o CSOM na página" /></center>
+
+<p>Valeu galera, caso tenha alguma dúvida ou sugestão deixe o seu comentário abaixo.
+Abraço!!!</p>
+
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=CSOM SharePoint&url=http://localhost:4000/CSOM-SharePoint/" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/CSOM-SharePoint/" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/CSOM-SharePoint/" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/tags#SharePoint" class="tag">&#35; SharePoint</a>
+          
+            <a href="/tags#JavaScript" class="tag">&#35; JavaScript</a>
+          
+        </div>
+      </div>
+      <section class="comment-area">
+  <div class="comment-wrapper">
+    
+    <div id="disqus_thread" class="article-comments"></div>
+    <script>
+      (function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//diesaraujo.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+  </div>
+</section> <!-- End Comment Area -->
+
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+  </div>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-57117931-1', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+</body>
+</html>

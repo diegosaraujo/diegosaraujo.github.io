@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Integração MS Project e SharePoint - Diego Araújo</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Diego Araújo" property="og:site_name">
+  
+    <meta content="Integração MS Project e SharePoint" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="Mapeando campos do MS Project no SharePoint" property="og:description">
+  
+  
+    <meta content="http://localhost:4000/MSProject-SharePoint-Integration/" property="og:url">
+  
+  
+    <meta content="2016-01-08T14:31:00-02:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/assets/img/avatar-icon.png" property="og:image">
+  
+  
+    
+  
+  
+    
+    <meta content="SharePoint" property="article:tag">
+    
+    <meta content="Microsoft Project" property="article:tag">
+    
+  
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@diego_araujo10">
+  
+    <meta name="twitter:title" content="Integração MS Project e SharePoint">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/MSProject-SharePoint-Integration/">
+  
+  
+    <meta name="twitter:description" content="Mapeando campos do MS Project no SharePoint">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img/avatar-icon.png">
+  
+
+	<meta name="description" content="Mapeando campos do MS Project no SharePoint">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta property="og:image" content="">
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/avatar-icon.png" alt="Diego Araújo"></a>
+      </div>
+      <div class="author-name">Diego Araújo</div>
+      <p>Analista de Sistemas • Carioca da Gema • Vascaíno • Sempre em busca de novos conhecimentos</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+        
+          <li><a href="https://twitter.com/diego_araujo10" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        
+        
+          <li><a href="https://facebook.com/diegoaraujo10" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        
+        
+          <li class="github"><a href="http://github.com/diegosaraujo" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/diesaraujo" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:diesaraujo@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2018 &copy; Diego Araújo</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">Integração MS Project e SharePoint</h1>
+        <div class="page-date"><span>2016, Jan 08&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <p>Hoje eu vou falar sobre algo bem simples. Todos nós sabemos que o SharePoint se integra com o MS Project e com qualquer outro produto da família Office. O grande X da questão é saber como explorar esta integração entre os produtos e a plataforma SharePoint.</p>
+
+<p>O exemplo que vou mencionar aqui veio de um problema vivido por um cliente.</p>
+
+<h3 id="cenário">Cenário</h3>
+
+<p>O cliente possui uma lista de tarefas do SharePoint, esta lista é preenchida pelo cliente através do MS Project.
+O cliente abre a lista com o Project, preenche as tarefas do projeto e depois sincroniza a lista preenchida com o SharePoint. Até aí nada de mais…</p>
+
+<p>O problema é que há um coluna chamada <strong>Duração</strong> que não está visivel no SharePoint e por este simples motivo o cliente acredita que não há integração entre o Project e o SharePoint.</p>
+
+<h3 id="solução">Solução</h3>
+<p>Para a coluna em questão ou qualquer outra coluna que seja adicionada no Project, é necessário mapear o campo para que ele fique visível no SharePoint. Acompanhe o post e veja como é simples realizar este mapeamento.</p>
+
+<h4 id="passo-1">Passo 1</h4>
+<p>Crie uma lista do tipo tarefa. No meu caso eu estarei utilizando uma já existente chamada <strong>Cronograma</strong>.</p>
+
+<center><img src="/assets/img/MSProject/img01.jpg" alt="Lista de tarefas" /></center>
+
+<h4 id="passo-2">Passo 2</h4>
+
+<p>Selecione a opção <strong>Lista</strong> menu ribbon localizado no topo do site e depois clique na opção <strong>Abrir no Project</strong>.</p>
+
+<center><img src="/assets/img/MSProject/Img02.jpg" alt="Abrindo a lista no MS Project" /></center>
+
+<h4 id="passo-3">Passo 3</h4>
+
+<p>Toda vez que você tentar abrir um documento que está no SharePoint com qualquer produto Office será necessário informar as suas credencias de acesso ao SharePoint, mesmo que você já esteja logado.</p>
+
+<p>Está é uma politica de segurança que verifica se você possui permissão de acesso ao documento e verifica qual é o seu nível de acesso. Insira o seu login e senha para continuar.</p>
+
+<center><img src="/assets/img/MSProject/Img03.jpg" alt="Janela de credenciais de acesso" /></center>
+
+<h4 id="passo-4">Passo 4</h4>
+
+<p>No meu exemplo eu não irei adicionar nenhuma coluna nova no meu doc. do Project, pois a coluna <strong>Duração</strong> não é mapeada no SharePoint.
+Caso queira, você pode adicionar uma nova coluna para realizar o passo a passo.</p>
+
+<center><img src="/assets/img/MSProject/Img04.jpg" alt="Colunas padrão do Project" /></center>
+
+<p>Preencha o documento do MS Project com o cronograma do projeto ou uma informação fake só para realizar o teste.</p>
+
+<p>Se você salvar o documento preenchido irá perceber que os dados foram sincronizados com o SharePoint mas a coluna Duração não aparece na view do SharePoint.</p>
+
+<center><img src="/assets/img/MSProject/Img05.jpg" alt="Exemplo de um doc. Project" /></center>
+
+<h4 id="passo-5">Passo 5</h4>
+
+<p>O próximo passo é mapear os campos (colunas) que não existem no SharePoint, neste nosso exemplo é o <strong>Duração</strong>.</p>
+
+<p>Clique na opção <strong>Arquivo</strong>.</p>
+
+<center><img src="/assets/img/MSProject/Img06.jpg" alt="Opção Arquivo do menu ribbon do MS Project" /></center>
+
+<p>Depois clique no <strong>Mapear campos</strong>.</p>
+<center><img src="/assets/img/MSProject/Img07.jpg" alt="Mapeando os campos do Project" /></center>
+
+<h4 id="passo-6">Passo 6</h4>
+
+<p>Sincronizar os campos do MS Project com o SharePoint. Clique no botão <strong>Mapear Campo</strong>.</p>
+<center><img src="/assets/img/MSProject/Img08.jpg" alt="Janela de mapeamento" /></center>
+
+<p>Selecione o campo (coluna) do Project que deseja soncronizar com o SharePoint. Neste exemplo é Duração e depois de um nome a coluna que será adicionada no SharePoint. O ideal é que a coluna do Project e do SharePoint tenham o mesmo nome.</p>
+
+<center><img src="/assets/img/MSProject/Img09.jpg" alt="Janela adicionar campos" /></center>
+
+<p>Veja que agora a coluna Duração aparece na janela Mapear Campos, e ela deverá estar marcada da mesma forma que na figura abaixo.</p>
+
+<center><img src="/assets/img/MSProject/Img10.jpg" alt="Janela mapear campos" /></center>
+
+<h4 id="passo-7">Passo 7</h4>
+<p>Salve o documento, aguarde o término da sincronização com o SharePoint e feche o documento.</p>
+
+<p><strong>Obs:</strong> Ao verificar a lista perceba que o campo Duração ainda não está visível (mas ele existe).</p>
+
+<center><img src="/assets/img/MSProject/Img11.jpg" alt="Lista do tipo tarefa do SharePoint" /></center>
+
+<h4 id="passo-8">Passo 8</h4>
+
+<p>Agora temos que adicionar a coluna <strong>Duração</strong> na nossa View Padrão da lista de tarefas para que ele apareça.</p>
+
+<p>Acesse o menu ribbon e na aba <strong>Lista</strong> clique na opção <strong>Configurações da Lista</strong> na seção de configurações.</p>
+
+<center><img src="/assets/img/MSProject/Img12.jpg" alt="Acessando as configurações da biblioteca" /></center>
+
+<p>Vá até o final da página, na opção <strong>Exibições (Views)</strong> encontre a view que está definida como padrão e clique nela.</p>
+
+<center><img src="/assets/img/MSProject/Img13.jpg" alt="Lista de Exibições" /></center>
+
+<p>Na lista de colunas disponível, selecione a coluna Duração, indique a posição dele na view (caso ache necessário) e depois clique em <strong>OK</strong>.</p>
+
+<center><img src="/assets/img/MSProject/Img14.jpg" alt="Listas de colunas disponíveis" /></center>
+
+<h4 id="passo-9">Passo 9</h4>
+<p>Você será redirecionado para a lista de tarefas, verifique se a coluna Duração está disponível na view.</p>
+
+<center><img src="/assets/img/MSProject/Img15.jpg" alt="Lista de tarefas com o campo de duração" /></center>
+
+<p>Isto é tudo…caso tenha alguma dúvida ou sugestão deixe seu comentário. Obrigado e até a próxima.</p>
+
+<p>Abraço!!</p>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=Integração MS Project e SharePoint&url=http://localhost:4000/MSProject-SharePoint-Integration/" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/MSProject-SharePoint-Integration/" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/MSProject-SharePoint-Integration/" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/tags#SharePoint" class="tag">&#35; SharePoint</a>
+          
+            <a href="/tags#Microsoft Project" class="tag">&#35; Microsoft Project</a>
+          
+        </div>
+      </div>
+      <section class="comment-area">
+  <div class="comment-wrapper">
+    
+    <div id="disqus_thread" class="article-comments"></div>
+    <script>
+      (function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//diesaraujo.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+  </div>
+</section> <!-- End Comment Area -->
+
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+  </div>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-57117931-1', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+</body>
+</html>

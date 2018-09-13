@@ -4,7 +4,7 @@ title: Vida de Programador - Do Lixo ao Luxo
 date: 2018-09-13 03:10:00
 description: Aprendi a ser resiliente
 img: vida/ada.jpg
-fig-caption:    
+fig-caption: 
 tags: [Vida]
 ---
 
@@ -12,7 +12,10 @@ tags: [Vida]
 
 >A **resiliência** é a capacidade de o indivíduo lidar com problemas, adaptar-se a mudanças, superar obstáculos ou resistir à pressão de situações adversas - choque, estresse, algum tipo de evento traumático, etc.
 
-Hojé é dia 13/09, dia do programador. Nada melhor do que falar sobre esta data especial para nós. 
+
+<br />
+
+Hojé é dia 13/09, dia do programador. Nada melhor do que falar sobre esta data especial, neste dia especial. 
 
 #### Por que dia 13/09?
 O Dia do Programador será sempre no 256º dia do ano. Como um bit representa dois valores (1 ou 0) e um byte possui 8 bits, o byte consegue representar até 256 valores. Simplificando, isto quer dizer que, 2 elevado a 8 é igual a **256**. Só não será comemorado neste dia em anos bissextos.
